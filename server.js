@@ -1,29 +1,16 @@
-require('dotenv').config({ debug: process.env.DEBUG });
+const express = require('express');
+const mongoose = require('mongoose');
+const marketRoutes = require('./routes/marketRoutes');
 
-const http = require('http');
+const app = express();
+app.use(express.json());
 
-const app = require('./app');
-
-app.use(function(req, res, next) {
-
-    res.header("Access-Control-Allow-Origin", "*");
-
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-
-    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
-
-    next();
-
+mongoose.connect('mongodb://localhost:27017/tonProjet', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
-const PORT = process.env.PORT || 5000;
+app.use('/markets', marketRoutes);
 
-const server = http.createServer(app);
-
-server.listen(PORT, () => {
-
-    console.log('Server up and running on port ' + PORT);
-
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
