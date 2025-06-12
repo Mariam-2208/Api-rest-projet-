@@ -1,7 +1,7 @@
 // Controllers/ordre.controller.js
 const Ordre = require('../Modeles/ordre.js');
 
-// Obtenir toutes les commandes
+// Obtenir toutes les commandes (GET))
 exports.getAllOrdres = async (req, res) => {
   try {
     const ordres = await Ordre.find().sort({ date: -1 });
@@ -11,7 +11,7 @@ exports.getAllOrdres = async (req, res) => {
   }
 };
 
-// Créer une nouvelle commande
+// Créer une nouvelle commande (POST)
 exports.createOrdre = async (req, res) => {
   try {
     const { produits, client, statut, total } = req.body;
@@ -23,7 +23,7 @@ exports.createOrdre = async (req, res) => {
   }
 };
 
-// Obtenir une commande par son ID
+// Obtenir une commande par son ID (GET :id)
 exports.getOrdreById = async (req, res) => {
   try {
     const ordre = await Ordre.findById(req.params.id);
@@ -36,7 +36,7 @@ exports.getOrdreById = async (req, res) => {
   }
 };
 
-// Supprimer une commande
+// Supprimer une commande (DELETE :id)
 exports.deleteOrdre = async (req, res) => {
   try {
     const result = await Ordre.findByIdAndDelete(req.params.id);
