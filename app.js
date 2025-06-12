@@ -8,6 +8,11 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
+
+
+app.use('/api/reclamations', reclamationRoutes);
+
+
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.json({limit: '50mb'}));
