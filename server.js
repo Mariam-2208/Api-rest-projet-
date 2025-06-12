@@ -4,6 +4,9 @@ const http = require('http');
 
 const app = require('./app');
 
+const reclamationRoutes = require('./Routes/reclamation');
+
+
 app.use(function(req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "*");
