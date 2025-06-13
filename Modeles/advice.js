@@ -4,7 +4,7 @@ const mongoosePaginate = require('mongoose-paginate');
 const adviceSchema = mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, default: 'Pas disponible.' },
-    user: { type: String, default: 'Anonyme' },
+    author: { type: String, default: 'Anonyme' },
     date: { type: Date, default: Date.now },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
@@ -12,4 +12,4 @@ const adviceSchema = mongoose.Schema({
 
 adviceSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('Advice', adviceSchema);
+module.exports = mongoose.model('advice', adviceSchema);
