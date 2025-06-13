@@ -1,7 +1,7 @@
 const Article = require('../Modeles/article');
 
 
-/*
+
 
 exports.create = (req, res, next) => {
    
@@ -61,4 +61,4 @@ exports.patch = (req, res, next) => {
         }
         res.send(data);
     })
-}*/
+}
