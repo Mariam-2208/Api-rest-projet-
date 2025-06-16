@@ -5,6 +5,6 @@ const productController = require('../controllers/advice');
 
 router.post('/create', productController.create);
 router.delete('/:id', productController.delete);
-router.patch('/:id/edit', productController.patch);
+//router.patch('/:id/edit', productController.patch);
 
 module.exports = router;
