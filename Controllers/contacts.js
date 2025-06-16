@@ -1,14 +1,12 @@
 const Contact = require('../Modeles/contact');
 
-
-
-
 exports.create = (req, res, next) => {
    
     const contact = new Contact({
         nom: req.body.nom,
-        prenom: req.body.prenom,
-        telephone: req.body.telephone
+        telephone: req.body.telephone,
+        mail: req.body.mail,
+        description: req.body.description
 
     }).save()
         .then(data => {

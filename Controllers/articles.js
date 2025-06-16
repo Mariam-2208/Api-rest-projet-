@@ -1,8 +1,5 @@
 const Article = require('../Modeles/article');
 
-
-
-
 exports.create = (req, res, next) => {
    
     const article = new Article({
