@@ -1,4 +1,4 @@
-const Market = require('../models/Market');
+const Market = require('../modeles/Market');
 
 exports.getAllMarkets = async (req, res) => {
   try {
