@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const marketController = require('../Controllers/market');
 
-router.get('/', marketController.getAllMarkets);
-router.post('/', marketController.createMarket);
+
+router.post('/create', marketController.create);
 
 module.exports = router;

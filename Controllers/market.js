@@ -1,20 +1,60 @@
-const Market = require('../modeles/Market');
+const Market = require('../Modeles/market');
 
-exports.getAllMarkets = async (req, res) => {
-  try {
-    const markets = await Market.find();
-    res.json(markets);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+
+
+
+exports.create = (req, res, next) => {
+   
+     const market = new Market({
+            name: req.body.name,
+            location: req.body.location,
+           
+    }).save()
+        .then(data => {
+            
+            res.status(201).json(data);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
 };
 
-exports.createMarket = async (req, res) => {
-  try {
-    const market = new Market(req.body);
-    await market.save();
-    res.status(201).json(market);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+exports.delete = (req, res, next) => {
+    // TODO delete files
+    Article.findByIdAndDelete({ _id: req.params.id })
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: "Success",
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            });
+        });
 };
+
+exports.patch = (req, res, next) => {
+
+    market.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+       
+location:  req.body.location ,
+createdAt: req.body.createdAt,
+        //displayPhoneNumber: req.body.displayPhoneNumber,
+        //displayEmail: req.body.displayEmail,
+        //picture: req.body.picture,
+        // user: req.body.user,
+        //published: req.body.published,
+        //available: req.body.available,
+    }, {new: true}, function (err, data) {
+        if (err) {
+            res.send({state: "erreur update market"})
+        }
+        res.send(data);
+    })
+}
