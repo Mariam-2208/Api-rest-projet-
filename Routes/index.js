@@ -1,8 +1,8 @@
 const articleRoutes = require('./article');
 const cityRoutes = require('./city');
 const ordreRoutes = require('./ordre');
-const adviceRoutes = require('./advice')
-const contactRoutes = require('./contact')
+const adviceRoutes = require('./advice');
+const contactRoutes = require('./contact');
 
 module.exports = (app) => {
    
