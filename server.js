@@ -7,6 +7,7 @@ const app = require('./app');
 
 
 
+
 app.use(function(req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
   });
 const port = process.env.PORT || 4000;
 >>>>>>> 29d60a9e2e62268467f780de772f7ab258524d7c
+
 
 const server = http.createServer(app);
 

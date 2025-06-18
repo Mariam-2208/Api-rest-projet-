@@ -1,13 +1,14 @@
-const City = require('../Modeles/city');
+const Market = require('../Modeles/market');
+
+
 
 
 exports.create = (req, res, next) => {
    
-    const city = new City({
-        name: req.body.name,
-        population: req.body.population,
-        codepostale: req.body.codepostale
-
+     const market = new Market({
+            name: req.body.name,
+            location: req.body.location,
+           
     }).save()
         .then(data => {
             
@@ -23,7 +24,7 @@ exports.create = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
     // TODO delete files
-    city.findByIdAndDelete({ _id: req.params.id })
+    Article.findByIdAndDelete({ _id: req.params.id })
         .exec()
         .then(result => {
             res.status(200).json({
@@ -39,11 +40,20 @@ exports.delete = (req, res, next) => {
 
 exports.patch = (req, res, next) => {
 
-    city.findByIdAndUpdate(req.params.id, {
-        
+    market.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+       
+location:  req.body.location ,
+createdAt: req.body.createdAt,
+        //displayPhoneNumber: req.body.displayPhoneNumber,
+        //displayEmail: req.body.displayEmail,
+        //picture: req.body.picture,
+        // user: req.body.user,
+        //published: req.body.published,
+        //available: req.body.available,
     }, {new: true}, function (err, data) {
         if (err) {
-            res.send({state: "erreur update article"})
+            res.send({state: "erreur update market"})
         }
         res.send(data);
     })
