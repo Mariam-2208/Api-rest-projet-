@@ -1,6 +1,6 @@
 const Advice = require('../modeles/advice');
 // Créer un nouveau conseil
-exports.createAdvice = async (req, res) => {
+exports.create = async (req, res) => {
     try {
         const newAdvice = new Advice(req.body);
         await newAdvice.save();
@@ -34,7 +34,7 @@ exports.getAdviceById = async (req, res) => {
 };
 
 // Supprimer un conseil
-exports.deleteAdvice = async (req, res) => {
+exports.delete = async (req, res) => {
     try {
         await Advice.findByIdAndDelete(req.params.id);
         res.json({ message: 'Conseil supprimé avec succès' });
