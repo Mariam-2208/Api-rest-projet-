@@ -1,14 +1,12 @@
 const Contact = require('../Modeles/contact');
 
-
-
-
 exports.create = (req, res, next) => {
    
     const contact = new Contact({
         nom: req.body.nom,
-        prenom: req.body.prenom,
-        telephone: req.body.telephone
+        telephone: req.body.telephone,
+        mail: req.body.mail,
+        description: req.body.description
 
     }).save()
         .then(data => {
@@ -29,7 +27,7 @@ exports.delete = (req, res, next) => {
         .exec()
         .then(result => {
             res.status(200).json({
-                message: "Success",
+                message: "Contact supprimé avec succès",
             });
         })
         .catch(err => {
@@ -43,11 +41,13 @@ exports.patch = (req, res, next) => {
 
     Contact.findByIdAndUpdate(req.params.id, {
         nom: req.body.nom,
-        prenom: req.body.prenom,
         telephone: req.body.telephone,
+        mail: req.body.mail,
+        description: req.body.description,
+        updated_at: new Date()
     }, {new: true}, function (err, data) {
         if (err) {
-            res.send({state: "erreur update article"})
+            res.send({state: "Erreur de mise à jour du contact"})
         }
         res.send(data);
     })
