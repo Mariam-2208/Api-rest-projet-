@@ -1,12 +1,12 @@
-const city = require('../Modeles/city');
+const City = require('../Modeles/city');
 
 
 exports.create = (req, res, next) => {
    
-    const city = new city({
-        name: req.body.city,
-        poputation: req.body.city,
-        code_postole: req.body.code_postole
+    const city = new City({
+        name: req.body.name,
+        population: req.body.population,
+        codepostale: req.body.codepostale
 
     }).save()
         .then(data => {

@@ -10,7 +10,7 @@ const citySchema = mongoose.Schema({
 
     population: { type: Number},
 
-    code_postale: { type: Number },
+    codepostale: { type: Number },
 
 });
 
