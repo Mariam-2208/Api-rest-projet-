@@ -1,4 +1,4 @@
-const Advice = require('../modeles/advice');
+const Advice = require('../Modeles/advice');
 // Créer un nouveau conseil
 exports.create = async (req, res) => {
     try {
