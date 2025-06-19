@@ -1,5 +1,6 @@
 const  articleRoutes = require('./article');
 const  cityRoutes = require('./city');
+<<<<<<< HEAD
 //const ordreRoutes = require('./ordre');
 const adviceRoutes = require('./advice');
 //const userNotificationRoutes = require('./userNotification');
@@ -7,11 +8,19 @@ const adviceRoutes = require('./advice');
 //const marketRoutes = require('./market');
 const contactRoutes = require('./contact');
 const reclamationRoutes = require('./reclamation');
+=======
+const ordreRoutes = require('./ordre');
+const adviceRoutes = require('./advice')
+const userRoutes = require('./User');
+const marketRoutes = require('./market');
+const countryRoutes = require('./country');
+>>>>>>> e2752e0 (Sauvegarde avant rebase)
 
 module.exports = (app) => {
 
    
   app.use('/api/v1/article', articleRoutes);
+<<<<<<< HEAD
   app.use('/api/v1/city', cityRoutes);
   //app.use('/api/v1/ordre',ordreRoutes);
   app.use('/api/v1/advice',adviceRoutes);
@@ -21,5 +30,15 @@ module.exports = (app) => {
   //app.use('/api/v1/user',userRoutes);
   //app.use('/api/v1/market' ,marketRoutes)
   app.use('/api/v1/reclamation', reclamationRoutes)
+=======
+ 
+ app.use('/api/v1/city', cityRoutes);
+    app.use('/api/v1/ordre',ordreRoutes);
+    app.use('/api/v1/advice',adviceRoutes);
+  app.use('/api/v1/market',marketRoutes);
+  app.use('/api/v1/country',countryRoutes)
+
+
+>>>>>>> e2752e0 (Sauvegarde avant rebase)
 
 };

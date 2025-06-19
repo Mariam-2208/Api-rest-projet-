@@ -1,15 +1,22 @@
 const mongoose = require('mongoose');
 
-const countrySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  code: {
-    type: String,
-    required: true,
-    unique: true
-  }
+const mongoosePaginate = require('mongoose-paginate');
+
+ 
+
+const countrySchema = mongoose.Schema({
+
+    nom: { type: String, required: true },
+
+    capital: { type: String, default: 'Pas disponible.' },
+
+    continent: { type: String, default: 0 },
+
+
 });
+
+ 
+
+countrySchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Country', countrySchema);
