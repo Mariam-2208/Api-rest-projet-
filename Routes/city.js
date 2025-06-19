@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const productController = require('../controllers/city');
+const productController = require('../Controllers/city');
 
 router.post('/create', productController.create);
 router.delete('/:id', productController.delete);
