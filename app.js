@@ -21,8 +21,8 @@ if (process.env.ENV === 'dev') {
     .catch((err) => console.log("❌ Échec de connexion à la base de données :", err));
 }else{
     mongoose.connect(process.env.URL)
-    .then(() => console.log("✅ Connecté à la base de données"))
-    .catch((err) => console.log("❌ Échec de connexion à la base de données :", err));
+    .then(() => console.log("✅ Connecté à la base de données PROD"))
+    .catch((err) => console.log("❌ Échec de connexion à la base de données PROD:", err));
 }
 
 
