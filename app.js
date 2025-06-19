@@ -14,9 +14,17 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '50mb', parameterLimit: 50000 }));
 
 // Connexion à la base de données MongoDB
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
+if (process.env.ENV === 'dev') {
+
+    mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
     .then(() => console.log("✅ Connecté à la base de données"))
     .catch((err) => console.log("❌ Échec de connexion à la base de données :", err));
+}else{
+    mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log("✅ Connecté à la base de données"))
+    .catch((err) => console.log("❌ Échec de connexion à la base de données :", err));
+}
+
 
 // Gestion CORS
 
