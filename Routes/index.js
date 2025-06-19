@@ -5,7 +5,8 @@ const adviceRoutes = require('./advice');
 //const userNotificationRoutes = require('./userNotification');
 //const userRoutes = require('./User');
 //const marketRoutes = require('./market');
-const contactRoutes = require('./contact')
+const contactRoutes = require('./contact');
+const reclamationRoutes = require('./reclamation');
 
 module.exports = (app) => {
 
@@ -19,5 +20,6 @@ module.exports = (app) => {
   app.use('/api/v1/contact',contactRoutes);
   //app.use('/api/v1/user',userRoutes);
   //app.use('/api/v1/market' ,marketRoutes)
+  app.use('/api/v1/reclamation', reclamationRoutes)
 
 };

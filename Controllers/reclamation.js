@@ -1,4 +1,4 @@
-const Reclamation = require('../models/reclamation');
+const Reclamation = require('../Modeles/reclamation')
 
 // Créer une nouvelle réclamation
 exports.creerReclamation = async (req, res) => {
