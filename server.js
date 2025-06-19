@@ -1,10 +1,8 @@
-// server.js
+require('dotenv').config({ debug: process.env.DEBUG });
 
 const http = require('http');
 
 const app = require('./app');
-
-
 
 
 app.use(function(req, res, next) {
@@ -21,11 +19,14 @@ app.use(function(req, res, next) {
 
 });
 
-const PORT = process.env.PORT || 5000;
 
+
+const port = process.env.PORT || 4000;
 
 const server = http.createServer(app);
 
 server.listen(port, () => {
-    console.log(`🚀 Serveur en écoute sur le port ${port}`);
+
+    console.log('🚀 Serveur en écoute sur le port' + port);
+
 });
