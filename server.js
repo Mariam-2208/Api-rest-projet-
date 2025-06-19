@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 require('dotenv').config({ debug: process.env.DEBUG });
 
+=======
+// server.js
+require('dotenv').config({ debug: process.env.DEBUG});
+>>>>>>> 8367ce8 (mise à jour)
 const http = require('http');
 
 const app = require('./app');
@@ -25,8 +30,13 @@ const port = process.env.PORT || 4000;
 
 const server = http.createServer(app);
 
+<<<<<<< HEAD
 server.listen(port, () => {
 
     console.log('🚀 Serveur en écoute sur le port' + port);
 
+=======
+server.listen(PORT, () => {
+    console.log(' Serveur en écoute sur le port' + PORT);
+>>>>>>> 8367ce8 (mise à jour)
 });
